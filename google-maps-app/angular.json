@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "google-maps-app"
+    }
+  },
+  "defaultProject": "google-maps-app",
+  "cli": {
+    "analytics": false
+  }
 }
