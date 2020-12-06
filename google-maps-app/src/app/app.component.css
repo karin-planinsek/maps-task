@@ -14,3 +14,7 @@
   height: 3.4vh;
   padding-top: 4px;
 }
+
+app-google-maps {
+  height: 100%;
+}
