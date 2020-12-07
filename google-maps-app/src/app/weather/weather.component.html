@@ -1,1 +1,14 @@
-<p>weather works!</p>
+<h3>8 - day forecast for {{ address }}</h3>
+<div *ngFor="let weather of weatherToday">
+  <div *ngFor="let dayWeather of weather.weather" class="row">
+    <div class="col-sm-4">
+      <p class="mt-4 desc"><strong>{{ weather.date }}</strong></p>
+    </div>
+    <div class="col-sm-4">
+      <p class="mt-4 desc">{{ dayWeather.description }}</p>
+    </div>
+    <div class="col-sm-4">
+      <img src="http://openweathermap.org/img/wn/{{ dayWeather.icon }}@2x.png" alt="" width="60">
+    </div>
+  </div>
+</div>
