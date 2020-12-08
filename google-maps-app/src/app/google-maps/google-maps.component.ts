@@ -1,6 +1,6 @@
 /// <reference types="googlemaps" />
 
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GeolocationService } from '@ng-web-apis/geolocation';
 
 import { take } from 'rxjs/operators';
@@ -11,7 +11,6 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./google-maps.component.css']
 })
 export class GoogleMapsComponent implements OnInit {
-  hey = 'Hey';
 
   constructor(private geolocation: GeolocationService) {
 
@@ -23,11 +22,6 @@ export class GoogleMapsComponent implements OnInit {
     .subscribe(position => this.initMap(position.coords.latitude, position.coords.longitude));
   }
 
-  /*getUserLocation(latitude, longitude) {
-    this.latLng = {lat: latitude, lng: longitude};
-    console.log(this.latLng);
-  }*/
-
   initMap(latitude, longitude) {
     // create map
     let map = new google.maps.Map(
@@ -37,9 +31,6 @@ export class GoogleMapsComponent implements OnInit {
         center: {lat: latitude, lng: longitude}
       }
     );
-
-    console.log('Map initialized');
-    console.log({lat: latitude, lng: longitude});
 
     // create marker on map
     let marker = new google.maps.Marker({

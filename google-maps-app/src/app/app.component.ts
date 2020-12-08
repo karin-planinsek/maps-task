@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.addressHistory = JSON.parse(localStorage.getItem('addressHistory'));
-    // console.log(this.addressHistory);
   }
 
   getLocationInput(city: HTMLInputElement, country: HTMLInputElement) {

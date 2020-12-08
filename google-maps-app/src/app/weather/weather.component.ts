@@ -13,6 +13,7 @@ import { take } from 'rxjs/operators';
 })
 export class WeatherComponent implements OnInit {
   @Input() inputAddress;
+
   API_KEY = '15b0f55ea5c54b159449393e829e0fa5';
 
   address;
@@ -38,7 +39,6 @@ export class WeatherComponent implements OnInit {
     .subscribe(position => {
       this.getAddress(position.coords.latitude, position.coords.longitude);
       this.getWeather(position.coords.latitude, position.coords.longitude);
-      // console.log(this.weatherToday);
     });
   }
 
@@ -59,6 +59,7 @@ export class WeatherComponent implements OnInit {
     let geocoder = new google.maps.Geocoder();
     let latLng = new google.maps.LatLng(lat, lng);
 
+    // converting lat and lng coordinates into string address
     geocoder.geocode(
       { location: latLng },
       (
