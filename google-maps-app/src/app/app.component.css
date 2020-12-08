@@ -22,3 +22,7 @@ input {
 app-google-maps {
   height: 100%;
 }
+
+ul {
+  text-align: left
+}

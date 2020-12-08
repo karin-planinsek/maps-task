@@ -14,17 +14,23 @@ export class AppComponent implements OnInit {
   @ViewChild('weather', {static: true}) weather: WeatherComponent;
 
   address: string;
+  addressHistory = [];
 
   constructor() {}
 
   ngOnInit() {
 
+    this.addressHistory = JSON.parse(localStorage.getItem('addressHistory'));
+    // console.log(this.addressHistory);
   }
 
   getLocationInput(city: HTMLInputElement, country: HTMLInputElement) {
     let cityName = city.value.charAt(0).toUpperCase() + city.value.slice(1);
     let countryName = country.value.charAt(0).toUpperCase() + country.value.slice(1);
     this.address = cityName + ', ' + countryName;
+
+    // store user input
+    this.storeSearchHistory(cityName, countryName);
 
     let lat, lng;
 
@@ -42,5 +48,22 @@ export class AppComponent implements OnInit {
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
+  }
+
+  storeSearchHistory(city, country) {
+    let addressHistory = [];
+    addressHistory = JSON.parse(localStorage.getItem('addressHistory'));
+
+    if (addressHistory !== null) {
+      addressHistory.push({city: city, country: country});
+      localStorage.setItem('addressHistory', JSON.stringify(addressHistory));
+    } else {
+      let history = [];
+      history.push({city: city, country: country});
+      localStorage.setItem('addressHistory', JSON.stringify(history));
+    }
+
+    this.addressHistory = JSON.parse(localStorage.getItem('addressHistory'));
+    console.log(this.addressHistory);
   }
 }

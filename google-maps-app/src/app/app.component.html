@@ -1,13 +1,13 @@
 <div class="container">
   <h2 class="mt-5">Enter location</h2>
-  <div class="row">
+  <div class="row mt-3">
     <div class="input-group input-group-sm mb-3">
       <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="City" #city>
       <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Country" #country>
     </div>
     <button class="btn btn-primary" (click)="getLocationInput(city, country)">Search</button>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-lg-6">
       <app-google-maps #maps></app-google-maps>
     </div>
@@ -15,5 +15,16 @@
       <app-weather #weather [inputAddress]="address"></app-weather>
     </div>
   </div>
+  <h3 class="mt-5">Search History</h3>
+  <div *ngIf="addressHistory !== null; else noHistory">
 
+      <ul *ngFor="let history of addressHistory">
+        <li>{{ history.city }}, {{ history.country }}</li>
+      </ul>
+  </div>
+  <ng-template #noHistory>
+
+      <p>No search history yet.</p>
+
+  </ng-template>
 </div>
