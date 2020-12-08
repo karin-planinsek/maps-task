@@ -2,16 +2,17 @@
   <h2 class="mt-5">Enter location</h2>
   <div class="row">
     <div class="input-group input-group-sm mb-3">
-      <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search" #location>
+      <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="City" #city>
+      <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Country" #country>
     </div>
-    <button class="btn btn-primary" (click)="getLocationInput(location)">Search</button>
+    <button class="btn btn-primary" (click)="getLocationInput(city, country)">Search</button>
   </div>
   <div class="row">
     <div class="col-lg-6">
-      <app-google-maps></app-google-maps>
+      <app-google-maps #maps></app-google-maps>
     </div>
     <div class="col-lg-6">
-      <app-weather></app-weather>
+      <app-weather #weather [inputAddress]="address"></app-weather>
     </div>
   </div>
 

@@ -1,4 +1,7 @@
-<h3>8 - day forecast for {{ address }}</h3>
+<h3 *ngIf="inputAddress === undefined; else input">8 - day forecast for {{ address }}</h3>
+<ng-template #input>
+  <h3>8 - day forecast for {{ inputAddress }}</h3>
+</ng-template>
 <div *ngFor="let weather of weatherToday">
   <div *ngFor="let dayWeather of weather.weather" class="row">
     <div class="col-sm-4">

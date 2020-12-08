@@ -11,6 +11,7 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./google-maps.component.css']
 })
 export class GoogleMapsComponent implements OnInit {
+  hey = 'Hey';
 
   constructor(private geolocation: GeolocationService) {
 

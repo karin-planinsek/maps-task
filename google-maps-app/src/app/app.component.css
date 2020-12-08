@@ -9,6 +9,10 @@
   margin-left: 5vw;
 }
 
+input {
+  text-transform: capitalize;
+}
+
 .btn {
   float: right;
   height: 3.4vh;
